@@ -38,7 +38,11 @@ filterName <- R6::R6Class("filterName", list(
     self$return_sim <- return_sim
     self$embedding_model <- embedding_model
     self$device <- device
-    self$k <- ifelse(!is.null(k), as.integer(k), NULL)
+    if(!is.null(k)) {
+      self$k <- as.integer(k)
+    }else {
+      self$k <- k
+    }
     self$threshold <- threshold
     self$tokenizer <- tokenizer
     self$fn <- ns$FilterName(
