@@ -116,8 +116,14 @@ matchName <- R6::R6Class("matchName", list(
     batch_size <- as.integer(batch_size)
     if(!all(is.null(by))) {
       left_exact<- by
-      right_exact <- names(left_exact)
+      if(!all(is.null(names(by)))) {
+        right_exact <- names(by)
+      } else {
+        right_exact <- left_exact
+      }
       right_exact[right_exact == ''] <- left_exact[right_exact == '']
+      left_exact <- as.list(left_exact)
+      right_exact <- as.list(right_exact)
     }else {
       left_exact <- right_exact <- NULL
     }
@@ -359,7 +365,7 @@ matchName <- R6::R6Class("matchName", list(
     out <- self$mn$dedupe_name(
       df = df, 
       name_col = name_col, 
-      exact = exact, 
+      exact = as.list(exact), 
       merge_threshold = merge_threshold, 
       return_marginal = return_marginal, 
       batch_size = batch_size
