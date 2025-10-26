@@ -1,0 +1,17 @@
+Package: rnamespace
+Title: Fuzzy Name Merging Using Embeddings
+Version: 0.0.0.9000
+Authors@R: 
+    person("Samuel", "Frederick", , "samuel.frederick@asc.upenn.edu", role = c("aut", "cre", "cph"))
+Description: Generates name embeddings and merges datasets using name embeddings to facilitate fuzzy merging. Wraps the Python package 'namespace.'
+Imports:
+    R6,
+    reticulate,
+    tibble
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
